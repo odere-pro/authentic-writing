@@ -1,8 +1,0 @@
-authentic-writing
-Copyright 2026 Aleksandr Derechei
-
-Licensed under the Apache License, Version 2.0 (see LICENSE).
-
-This plugin bundles the authentic-writing workflow engine
-(skills/authentic-writing/authentic-writing.js), original work by the author.
-No third-party code is vendored.

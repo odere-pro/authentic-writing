@@ -3,17 +3,26 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/); versioning is [SemVer](https://semver.org/).
 
+## [0.2.0] - 2026-06-30
+
+### Added
+
+- `onboarding` skill — first-run orientation.
+- `/authentic-writing:doctor` command + `scripts/doctor.sh` — health check (Bun, engine, output dir).
+- `CLAUDE.md` contributor guide and a minimal CI workflow.
+- README reshaped to the odere-pro standard skeleton, with a Privacy note.
+
+### Changed
+
+- Relicensed Apache-2.0 → MIT (odere-pro suite standard); removed `NOTICE`.
+- Canonical author: Oleksandr Derechei.
+
 ## [0.1.0] - 2026-06-30
 
 ### Added
 
 - Initial release of the `authentic-writing` Claude Code plugin.
-- **Router-first writing engine** bundled as the `authentic-writing` skill: 15 calibrated format
-  pipelines (Medium, LinkedIn, documentation, narrative, report, GitHub issue, GitHub comment, PR
-  comment, press release, changelog, release notes, MVP, POC, note) plus a generic fallback. Each
-  pipeline has a persona panel, deterministic format validators, and a green-gate revision loop.
-- **`house-voice` reference skill** — two registers (explanatory / engineer) and an LLM-artifact
-  blocklist the engine folds in as its tone rubric.
-- **`/authentic-writing:write` command** — describe what to write; it routes, applies the house
-  voice, and reports the result.
-- **`SessionStart` hook** that idempotently installs the workflow engine into `~/.claude/workflows/`.
+- Router-first writing engine: 15 calibrated format pipelines plus a generic fallback, a persona
+  panel, deterministic validators, and a green-gate revision loop.
+- `house-voice` reference skill; `/authentic-writing:write` command; `SessionStart` hook that
+  installs the workflow engine into `~/.claude/workflows/`.

@@ -4,10 +4,34 @@ A Claude Code plugin that writes in your voice. You describe what you want — a
 LinkedIn post, a changelog — and it routes the request to a calibrated pipeline, drafts it, runs a
 panel of readers that grills the draft, and revises until it reads like a person wrote it.
 
-It is a **router-first** engine: each format is its own pipeline with its own reader, structural
-skeleton, and hard rules. A LinkedIn post is checked against a 3000-character limit and a hook that
-has to land in the first line; a Medium article is checked for section dividers, a TL;DR, and length.
-Anything that does not match a known format falls back to a generic pipeline.
+## What's inside
+
+| Component | What it does |
+| --- | --- |
+| `authentic-writing` skill | The router-first engine: 15 calibrated format pipelines (Medium, LinkedIn, docs, report, changelog, and more) plus a generic fallback, each with a persona panel, deterministic validators, and a green-gate loop |
+| `house-voice` skill | The tone rubric the engine obeys: two registers (explanatory / engineer) and an LLM-artifact blocklist |
+| `onboarding` skill | First-run orientation |
+| `/authentic-writing:write` | The entry point — describe the piece, get it written |
+| `/authentic-writing:doctor` | Health check (Bun, engine, output folder) |
+
+## How it works
+
+The engine spawns a small persona panel for each draft: a subject-matter expert who writes the
+source-grounded first draft, a format expert who applies the skeleton, newcomer and pro readers who
+judge whether the value lands, and an always-on judge that adversarially stress-tests every round. A
+draft ships only when the judge passes it, every reviewer scores it at least 4 of 5, and the
+deterministic validators report zero blocking violations. Each format is its own pipeline with its
+own reader and hard rules — a LinkedIn post is held to a 3000-character limit and a hook in the first
+line; a Medium article to section dividers, a TL;DR, and length.
+
+## Prerequisites
+
+| Tool | Purpose | Install |
+| --- | --- | --- |
+| **Bun** `>= 1.2` | Runs the workflow engine | `curl -fsSL https://bun.sh/install \| bash` |
+| `bash`, `git` | Hook + installer | Pre-installed on macOS / Linux |
+
+`/authentic-writing:doctor` checks these and tells you what to install.
 
 ## Install
 
@@ -16,10 +40,10 @@ Anything that does not match a known format falls back to a generic pipeline.
 /plugin install authentic-writing
 ```
 
-Requires **Bun** (the workflow engine runtime) and `bash`. A `SessionStart` hook installs the engine
-into `~/.claude/workflows/` on first run, so there is nothing to set up by hand.
+A `SessionStart` hook installs the engine into `~/.claude/workflows/` on first run. Run
+`/authentic-writing:doctor` once after install to confirm everything is in place.
 
-## Use it
+## Quickstart
 
 ```text
 /authentic-writing:write a LinkedIn post about my obsidian wiki experiment
@@ -27,47 +51,32 @@ into `~/.claude/workflows/` on first run, so there is nothing to set up by hand.
 /authentic-writing:write release notes for v2.0
 ```
 
-Describe the piece in plain language. The plugin picks the format, applies your house voice, and
-writes the result to `tmp/authentic-writing/` at the project root. It reports which pipeline ran,
-whether the draft passed the gate, and anything still open — blocking rule violations, image/table
-placeholders, or questions the judge could not resolve.
-
-To ground a piece in real material, mention it ("about my X project") and point at the files; the
-subject-matter persona quotes from them instead of inventing.
-
-## Formats
+Describe the piece in plain language; the plugin picks the format, applies your house voice, and
+writes the result to `tmp/authentic-writing/`. It reports which pipeline ran, whether the draft
+passed the gate, and anything still open. To ground a piece in real material, mention it and point at
+the files — the subject-matter persona quotes from them instead of inventing.
 
 | You ask for | Pipeline |
-|---|---|
+| --- | --- |
 | a Medium / blog article | `medium` |
 | a LinkedIn post | `linkedin` |
-| docs / a how-to | `documentation` |
-| a story / essay | `narrative` |
-| an analysis / report | `report` |
-| a GitHub issue / comment | `github-issue` / `github-comment` |
-| a PR / code-review comment | `pr-comment` |
-| a press release | `press-release` |
-| a changelog / release notes | `changelog` / `release-notes` |
-| an MVP / POC writeup | `mvp` / `poc` |
-| a quick note | `note` |
+| docs, report, narrative | `documentation` / `report` / `narrative` |
+| a GitHub issue / comment / PR comment | `github-issue` / `github-comment` / `pr-comment` |
+| a press release, changelog, release notes | `press-release` / `changelog` / `release-notes` |
+| an MVP / POC / note | `mvp` / `poc` / `note` |
 | anything else | `generic` |
 
-## The house voice
+## Documentation
 
-The `house-voice` skill is the tone rubric the engine obeys. It defines two registers — explanatory
-for the "what and why", engineer for the load-bearing detail — and a blocklist of phrasings that read
-as machine-written (hype adjectives, filler openers, the "not just X, it's Y" frame, and the rest).
-The grill-me judge fails any draft that reuses them. Edit the skill to make the output sound more
-like you.
+- The `house-voice` skill is the tone rubric the engine obeys; edit it to tune your voice.
+- Conventions this plugin follows: [odere-pro plugin conventions](https://github.com/odere-pro/claude-software-3-0-marketplace/blob/main/CONVENTIONS.md).
+- Release history: [CHANGELOG.md](./CHANGELOG.md).
 
-## How it works
+## Privacy
 
-The engine spawns a small persona panel for each draft: a subject-matter expert who writes the
-source-grounded first draft, a format/ship expert who applies the skeleton, newcomer and pro readers
-who judge whether the value lands, and an always-on judge who adversarially stress-tests every round.
-A draft ships only when the judge passes it, every reviewer scores it at least 4 of 5, and the
-deterministic validators report zero blocking violations.
+No telemetry. The plugin never phones home. Everything runs in your session — your files, your hooks,
+your shell. Output stays in your project's `tmp/authentic-writing/`.
 
 ## License
 
-Apache-2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
+MIT. See [LICENSE](./LICENSE).
