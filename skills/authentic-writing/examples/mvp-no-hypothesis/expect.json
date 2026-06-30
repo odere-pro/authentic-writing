@@ -1,0 +1,6 @@
+{
+  "format": "mvp",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "An MVP needs a hypothesis and ruthless in/out-of-scope lists."
+}

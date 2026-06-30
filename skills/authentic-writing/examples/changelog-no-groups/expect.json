@@ -1,0 +1,6 @@
+{
+  "format": "changelog",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "Changelog entries group under Added / Changed / Fixed / Deprecated / Removed / Security."
+}

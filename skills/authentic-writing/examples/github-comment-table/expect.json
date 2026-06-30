@@ -1,0 +1,6 @@
+{
+  "format": "github-comment",
+  "expectBefore": ["tables"],
+  "expectAfterClean": true,
+  "note": "A short comment reads better as prose than a table."
+}

@@ -1,0 +1,6 @@
+{
+  "format": "github-issue",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "An issue needs a summary and an expected-vs-actual so a maintainer can reproduce."
+}

@@ -1,0 +1,6 @@
+{
+  "format": "linkedin",
+  "expectBefore": ["maxChars", "plainText"],
+  "expectAfterClean": true,
+  "note": "LinkedIn is plain text under 3000 chars; the long markdown draft trips both."
+}

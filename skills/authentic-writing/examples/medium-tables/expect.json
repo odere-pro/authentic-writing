@@ -1,0 +1,6 @@
+{
+  "format": "medium",
+  "expectBefore": ["tables", "mustHave"],
+  "expectAfterClean": true,
+  "note": "Medium renders no tables; sections need `---` separators."
+}

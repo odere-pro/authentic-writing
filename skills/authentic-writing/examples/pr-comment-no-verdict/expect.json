@@ -1,0 +1,6 @@
+{
+  "format": "pr-comment",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "A PR comment should lead with a verdict (approve / request changes / question)."
+}

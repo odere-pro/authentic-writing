@@ -1,0 +1,6 @@
+{
+  "format": "release-notes",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "Release notes lead with highlights of the release's value."
+}

@@ -1,0 +1,6 @@
+{
+  "format": "narrative",
+  "expectBefore": ["tables"],
+  "expectAfterClean": true,
+  "note": "A narrative carries the reader with prose, not tables."
+}

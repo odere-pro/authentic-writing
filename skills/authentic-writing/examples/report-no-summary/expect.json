@@ -1,0 +1,6 @@
+{
+  "format": "report",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "A report opens with an executive summary / TL;DR."
+}

@@ -1,0 +1,6 @@
+{
+  "format": "note",
+  "expectBefore": ["mustHave"],
+  "expectAfterClean": true,
+  "note": "A note must lead with a one-line takeaway."
+}

@@ -1,0 +1,28 @@
+{
+  "name": "authentic-writing",
+  "version": "0.1.0",
+  "description": "Router-first writing engine for Claude Code: turns a request into a polished Medium article, LinkedIn post, doc, report, changelog, and more — driven by a calibrated persona panel plus deterministic format validators, in a house voice that reads human.",
+  "author": {
+    "name": "Aleksandr Derechei",
+    "email": "odere.pub@gmail.com"
+  },
+  "homepage": "https://github.com/odere-pro/authentic-writing",
+  "repository": "https://github.com/odere-pro/authentic-writing",
+  "license": "Apache-2.0",
+  "keywords": [
+    "claude-code",
+    "claude-code-plugin",
+    "claude-code-skills",
+    "writing",
+    "content",
+    "content-writing",
+    "medium",
+    "linkedin",
+    "blog",
+    "copywriting",
+    "ghostwriting",
+    "persona-panel",
+    "editor",
+    "authentic-writing"
+  ]
+}

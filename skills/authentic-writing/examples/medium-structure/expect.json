@@ -1,0 +1,6 @@
+{
+  "format": "medium",
+  "expectBefore": ["singleH1", "mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "Medium wants exactly one H1 and a TL;DR blockquote; sub-sections are H2."
+}

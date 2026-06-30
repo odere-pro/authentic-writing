@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/skills/authentic-writing/install.sh >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ]
+  }
+}

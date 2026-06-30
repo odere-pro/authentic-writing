@@ -1,0 +1,6 @@
+{
+  "format": "poc",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "A PoC must lead with the question and a clear verdict."
+}

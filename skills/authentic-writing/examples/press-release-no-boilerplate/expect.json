@@ -1,0 +1,6 @@
+{
+  "format": "press-release",
+  "expectBefore": ["mustHave", "mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "A press release needs an About boilerplate and at least one quote."
+}

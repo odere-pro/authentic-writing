@@ -1,0 +1,6 @@
+{
+  "format": "documentation",
+  "expectBefore": ["mustHaveAny"],
+  "expectAfterClean": true,
+  "note": "Docs need a task-oriented steps/usage/example section."
+}

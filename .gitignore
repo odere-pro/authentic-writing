@@ -1,0 +1,6 @@
+# Engine output
+tmp/
+# Node
+node_modules/
+# OS
+.DS_Store
